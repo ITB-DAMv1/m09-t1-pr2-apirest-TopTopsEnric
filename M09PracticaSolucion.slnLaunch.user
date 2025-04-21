@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "M09Practica\\M09Practica.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "ApiM09practica\\ApiM09practica.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

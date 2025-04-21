@@ -1,0 +1,43 @@
+﻿@page
+@model M09Practica.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+         
+
+            <div class="form-group">
+                <label asp-for="LoginData.Email"></label>
+                <input asp-for="LoginData.Email" class="form-control" />
+                <span asp-validation-for="LoginData.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LoginData.Password"></label>
+                <input asp-for="LoginData.Password" class="form-control" />
+                <span asp-validation-for="LoginData.Password" class="text-danger"></span>
+            </div>
+
+            
+
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+
+        <div class="mt-3">
+            <p>
+                ¿No tienes una cuenta? <a asp-page="./Register">Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

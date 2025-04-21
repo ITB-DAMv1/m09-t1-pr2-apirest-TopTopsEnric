@@ -1,0 +1,65 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization
+@model M09Practica.Pages.ChatModel
+@attribute [Authorize]
+@{
+    ViewData["Title"] = "Chat en tiempo real";
+}
+
+<h2>Chat en tiempo real</h2>
+
+<div class="mb-3">
+    <input id="messageInput" class="form-control" placeholder="Escribe un mensaje" autocomplete="off" />
+</div>
+<button id="sendButton" class="btn btn-primary" disabled>Enviar</button>
+
+<ul id="messagesList" style="height:300px; overflow-y:auto; border:1px solid #ccc; padding:5px; list-style:none;"></ul>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script>
+        // Obtener token JWT guardado en sessionStorage
+        const token = sessionStorage.getItem("AuthToken");
+
+        // Construir conexión SignalR con token para autenticación
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7259/UsersXat", {
+                accessTokenFactory: () => token
+            })
+            .withAutomaticReconnect()
+            .build();
+
+        const sendButton = document.getElementById("sendButton");
+        const messageInput = document.getElementById("messageInput");
+        const messagesList = document.getElementById("messagesList");
+
+        // Recibir mensajes del servidor
+        connection.on("RepMissatge", (user, message) => {
+            const li = document.createElement("li");
+            li.textContent = `${user}: ${message}`;
+            messagesList.appendChild(li);
+            messagesList.scrollTop = messagesList.scrollHeight;
+        });
+
+        // Iniciar conexión
+        connection.start()
+            .then(() => {
+                sendButton.disabled = false;
+            })
+            .catch(err => console.error(err.toString()));
+
+        // Enviar mensaje al pulsar botón
+        sendButton.addEventListener("click", () => {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            connection.invoke("EnviaMissatge", message)
+                .catch(err => console.error(err.toString()));
+            messageInput.value = "";
+        });
+
+        // Enviar mensaje al pulsar Enter
+        messageInput.addEventListener("keyup", e => {
+            if (e.key === "Enter") sendButton.click();
+        });
+    </script>
+}

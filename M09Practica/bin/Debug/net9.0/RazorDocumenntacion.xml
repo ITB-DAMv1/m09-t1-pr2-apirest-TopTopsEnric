@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>M09Practica</name>
+    </assembly>
+    <members>
+        <member name="T:M09Practica.Model.Forms.GameFormModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo para el formulario de creación o edición de un juego, con validaciones para nombre, descripción y URL de imagen.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Forms.LoginFormModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo para el formulario de login, que contiene el email y la contraseña del usuario con sus validaciones.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Forms.RegisterAdminFormModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo para el formulario de registro de administrador, con campos para nombre de usuario, nombre, apellido, correo electrónico, contraseña y confirmación de contraseña, incluyendo validaciones.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Forms.RegisterUserFormModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo para el formulario de registro de usuario, con campos para nombre de usuario, nombre, apellido, correo electrónico, contraseña y confirmación de contraseña, incluyendo validaciones.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Request.CreateGameDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para la creación de un juego, que contiene el nombre, descripción y URL de la imagen del juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Request.GameUpdateDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para la actualización de un juego, que contiene el nombre, descripción y URL de la imagen del juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Request.LoginRequestDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para la solicitud de login, que contiene el email y la contraseña del usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Request.RegisterAdminRequestDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para la solicitud de registro de administrador, que contiene email, contraseña, nombre, apellido y nombre de usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Request.RegisterUserRequestDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para la solicitud de registro de usuario, que contiene email, contraseña, nombre, apellido y nombre de usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Request.UpdateGameDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para la actualización de un juego, que contiene el nombre, descripción y URL de la imagen del juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Response.GameDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO que representa un juego con su identificador, nombre, descripción, imagen de perfil y número de votos.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.Response.TokenResponseDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO que representa la respuesta de un token de autenticación, incluyendo el token, su fecha de expiración y el rol del usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.ViewModel.GameDetailViewModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de vista que representa los detalles de un juego, incluyendo su identificador, nombre, descripción, URL de imagen, votos y si el usuario puede votar.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.ViewModel.GameEditViewModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de vista para la edición de un juego, que incluye el identificador, nombre, descripción y URL de la imagen con validaciones de longitud y formato.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Model.ViewModel.GameViewModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de vista que representa un juego para la interfaz de usuario, incluyendo identificador, nombre, descripción, imagen, votos y propiedades para mostrar descripción truncada y texto de votos.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Pages.Account.LoginModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para el inicio de sesión de usuarios.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Gestiona la autenticación mediante llamada a la API externa.
+            Maneja la creación del token, almacenamiento en sesión y autenticación con cookies.
+            Redirige a la página principal si el usuario ya está autenticado.
+            </remarks>
+        </member>
+        <member name="P:M09Practica.Pages.Account.LoginModel.LoginData">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Propiedad enlazada que contiene los datos del formulario de login.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="P:M09Practica.Pages.Account.LoginModel.ErrorMessage">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Mensaje de error para mostrar en la vista en caso de fallo de autenticación.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:M09Practica.Pages.Account.LoginModel.#ctor(System.Net.Http.IHttpClientFactory)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Constructor que recibe la fábrica de clientes HTTP para llamadas a la API.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="clientFactory">Fábrica para crear clientes HTTP.</param>
+        </member>
+        <member name="M:M09Practica.Pages.Account.LoginModel.OnGet">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Redirige a la página principal si el usuario ya está autenticado.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.Account.LoginModel.OnPostAsync">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición POST para procesar el inicio de sesión.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Redirige a la página principal si el login es exitoso; de lo contrario, recarga la página con errores.</returns>
+        </member>
+        <member name="T:M09Practica.Pages.Account.LogoutModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para gestionar el cierre de sesión del usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Limpia la sesión, cierra la autenticación basada en cookies,
+            elimina las cookies relacionadas y redirige a la página principal.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.Account.LogoutModel.OnGetAsync">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET para cerrar la sesión del usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Redirige a la página principal tras cerrar sesión.</returns>
+        </member>
+        <member name="T:M09Practica.Pages.Account.RegisterModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para el registro de nuevos usuarios.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Gestiona la creación de usuarios mediante llamada a la API externa.
+            Redirige a la página de login tras un registro exitoso.
+            Si el usuario ya está autenticado, redirige a la página principal.
+            </remarks>
+        </member>
+        <member name="P:M09Practica.Pages.Account.RegisterModel.RegisterData">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Propiedad enlazada que contiene los datos del formulario de registro.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="P:M09Practica.Pages.Account.RegisterModel.ErrorMessage">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Mensaje de error para mostrar en la vista en caso de fallo en el registro.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:M09Practica.Pages.Account.RegisterModel.#ctor(System.Net.Http.IHttpClientFactory)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Constructor que recibe la fábrica de clientes HTTP para llamadas a la API.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="clientFactory">Fábrica para crear clientes HTTP.</param>
+        </member>
+        <member name="M:M09Practica.Pages.Account.RegisterModel.OnGet">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Redirige a la página principal si el usuario ya está autenticado.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.Account.RegisterModel.OnPostAsync">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición POST para procesar el registro de usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Redirige a la página de login si el registro es exitoso; de lo contrario, recarga la página con errores.</returns>
+        </member>
+        <member name="T:M09Practica.Pages.Account.RegisterAdminModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para el registro de administradores, accesible solo para usuarios con rol Admin.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Controla el acceso restringido a administradores.
+            Envía los datos de registro a la API con autenticación mediante token.
+            Muestra mensajes de éxito o error según el resultado del registro.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.Account.RegisterAdminModel.OnGet">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET para verificar permisos de acceso.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Permite el acceso solo a administradores; de lo contrario, devuelve prohibición.</returns>
+        </member>
+        <member name="M:M09Practica.Pages.Account.RegisterAdminModel.OnPostAsync">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición POST para procesar el registro de un nuevo administrador.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Redirige a la página principal tras registro exitoso o recarga la página con errores.</returns>
+        </member>
+        <member name="T:M09Practica.Pages.ErrorModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para manejar y mostrar errores en la aplicación.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Deshabilita el almacenamiento en caché de la respuesta y omite la verificación antifalsificación.
+            Obtiene el identificador de la solicitud para mostrarlo en la vista, facilitando la trazabilidad del error.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.ErrorModel.OnGet">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET para asignar el identificador de la solicitud actual.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Pages.Games.CreateModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para la creación de nuevos juegos, accesible solo para usuarios con rol Admin.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Controla el acceso restringido a administradores.
+            Envía los datos del nuevo juego a la API con autenticación mediante token.
+            Muestra mensajes de éxito o error según el resultado de la creación.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.Games.CreateModel.OnGet">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET para verificar permisos de acceso.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Permite el acceso solo a administradores; de lo contrario, devuelve prohibición.</returns>
+        </member>
+        <member name="M:M09Practica.Pages.Games.CreateModel.OnPostAsync">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición POST para procesar la creación de un nuevo juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Redirige a la página principal tras creación exitosa o recarga la página con errores.</returns>
+        </member>
+        <member name="T:M09Practica.Pages.Games.DetailsModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para mostrar los detalles de un juego específico.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Obtiene los datos del juego desde la API y los muestra en la vista.
+            Permite a usuarios autenticados votar por el juego.
+            Permite a administradores eliminar el juego.
+            Maneja errores de carga, votación y eliminación.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.Games.DetailsModel.OnGetAsync(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET para cargar los detalles del juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="id">Identificador del juego.</param>
+            <returns>Muestra la página con los detalles o error si no se encuentra el juego.</returns>
+        </member>
+        <member name="M:M09Practica.Pages.Games.DetailsModel.OnPostAsync(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición POST para votar por un juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="id">Identificador del juego.</param>
+            <returns>Redirige a la misma página con el resultado de la votación o muestra error.</returns>
+        </member>
+        <member name="M:M09Practica.Pages.Games.DetailsModel.OnPostDeleteAsync(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición POST para eliminar un juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="id">Identificador del juego.</param>
+            <returns>Redirige a la página principal tras eliminación o muestra error.</returns>
+        </member>
+        <member name="T:M09Practica.Pages.Games.EditModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para editar los datos de un juego existente, accesible solo para administradores.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Carga los datos actuales del juego desde la API para su edición.
+            Envía los datos actualizados a la API con autenticación mediante token.
+            Maneja errores de carga y actualización.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.Games.EditModel.OnGetAsync(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET para cargar los datos del juego a editar.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="id">Identificador del juego.</param>
+            <returns>Muestra la página con los datos del juego o error si no se encuentra.</returns>
+        </member>
+        <member name="M:M09Practica.Pages.Games.EditModel.OnPostAsync">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición POST para enviar los datos actualizados del juego.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <returns>Redirige a la página de detalles tras actualización exitosa o recarga la página con errores.</returns>
+        </member>
+        <member name="T:M09Practica.Pages.IndexModel">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Modelo de página para mostrar la lista de juegos disponibles.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Obtiene la lista de juegos desde la API.
+            Mapea los datos recibidos a la vista y ordena los juegos por número de votos en orden descendente.
+            Guarda el token JWT de la sesión para posibles usos en la vista.
+            Maneja errores en la carga de datos.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Pages.IndexModel.OnGetAsync">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que se ejecuta en la petición GET para cargar la lista de juegos.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:M09Practica.Program">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase principal que configura y ejecuta la aplicación web.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Configura servicios como Razor Pages, HttpClient para la API de juegos, autenticación con cookies, autorización, y sesiones.
+            Define el pipeline de solicitudes HTTP con manejo de errores, HTTPS, archivos estáticos, sesiones, autenticación y autorización.
+            Finalmente, inicia la aplicación.
+            </remarks>
+        </member>
+        <member name="M:M09Practica.Program.Main(System.String[])">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método principal asincrónico que construye y ejecuta la aplicación.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="args">Argumentos de línea de comandos.</param>
+        </member>
+        <member name="T:M09Practica.Tools.SecurityTools">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase estática que proporciona herramientas de seguridad.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:M09Practica.Tools.SecurityTools.EncriptPassword(System.String)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método que encripta una contraseña utilizando el algoritmo SHA-256.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="password">Contraseña en texto plano a encriptar.</param>
+            <returns>Cadena hexadecimal que representa el hash SHA-256 de la contraseña.</returns>
+        </member>
+        <member name="T:M09Practica.Tools.TokenHelper">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase auxiliar para operaciones relacionadas con tokens JWT.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:M09Practica.Tools.TokenHelper.IsTokenSession(System.String)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Verifica si un token de sesión es válido y no ha expirado.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <param name="token">Token JWT en formato string.</param>
+            <returns>True si el token no está vacío y no ha expirado; false en caso contrario.</returns>
+        </member>
+        <member name="M:M09Practica.Tools.TokenHelper.IsTokenExpired(System.String)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Valida si un token JWT ha expirado.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Requiere la librería System.IdentityModel.Tokens.Jwt para su funcionamiento.
+            </remarks>
+            <param name="token">Token JWT en formato string.</param>
+            <returns>True si el token ha expirado; false si aún es válido.</returns>
+        </member>
+    </members>
+</doc>

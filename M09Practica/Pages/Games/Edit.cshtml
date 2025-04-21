@@ -1,0 +1,51 @@
+﻿@page
+@model M09Practica.Pages.Games.EditModel
+@{
+	ViewData["Title"] = "Editar juego";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        @if (!User.Identity.IsAuthenticated || !User.IsInRole("Admin"))
+        {
+            <div class="alert alert-danger">
+                No tienes permisos para acceder a esta página.
+            </div>
+        }
+        else
+        {
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="GameData.Id" />
+
+                <div class="form-group">
+                    <label asp-for="GameData.Name"></label>
+                    <input asp-for="GameData.Name" class="form-control" />
+                    <span asp-validation-for="GameData.Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GameData.Description"></label>
+                    <textarea asp-for="GameData.Description" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="GameData.Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GameData.ProfileImage"></label>
+                    <input asp-for="GameData.ProfileImage" class="form-control" />
+                    <small class="form-text text-muted">URL de la imagen del juego</small>
+                    <span asp-validation-for="GameData.ProfileImage" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <a asp-page="/Games/Details" asp-route-id="@Model.GameData.Id" class="btn btn-secondary">Cancelar</a>
+            </form>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

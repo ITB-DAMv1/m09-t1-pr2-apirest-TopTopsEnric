@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Videojuegos</h1>
+    <p>Descubre los mejores juegos ordenados por votos.</p>
+</div>
+
+<div class="row">
+    @foreach (var game in Model.Games)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                @if (!string.IsNullOrEmpty(game.ImageUrl))
+                {
+                    <img src="@game.ImageUrl" class="card-img-top" alt="@game.Name" style="height: 200px; object-fit: cover;">
+                }
+                else
+                {
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <span class="text-muted">Sin imagen</span>
+                    </div>
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@game.Name</h5>
+                    <p class="card-text">@game.TruncatedDescription</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <small class="text-muted">@game.VotesDisplay</small>
+                    <div>
+                        <a asp-page="/Games/Details" asp-route-id="@game.Id" class="btn btn-primary btn-sm">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<script>
+    sessionStorage.setItem("AuthToken", '@Model.JwtToken');
+</script>
+
+@if (!Model.Games.Any())
+{
+    <div class="alert alert-info">
+        No hay juegos disponibles en este momento.
+    </div>
+}

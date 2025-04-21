@@ -1,0 +1,18 @@
+﻿@page
+@model M09Practica.Pages.ChatClientModel
+@{
+	ViewData["Title"] = "Xat en temps real";
+}
+
+<h2>Xat en temps real</h2>
+
+<label for="usuari">Nom:</label>
+<input id="usuari" placeholder="Nom d'usuari" />
+<br />
+
+<label for="missatge">Missatge:</label>
+<input id="missatge" placeholder="Escriu un missatge" />
+<button onclick="enviaMissatge()">Envia</button>
+
+<ul id="missatges"></ul>
+

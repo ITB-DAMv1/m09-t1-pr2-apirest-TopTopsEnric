@@ -1,0 +1,6 @@
+@ApiM09practica_HostAddress = http://localhost:5073
+
+GET {{ApiM09practica_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

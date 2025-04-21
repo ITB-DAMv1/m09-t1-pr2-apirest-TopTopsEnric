@@ -1,0 +1,63 @@
+﻿@page
+@model M09Practica.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Registro de usuario";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="RegisterData.Username"></label>
+                <input asp-for="RegisterData.Username" class="form-control" />
+                <span asp-validation-for="RegisterData.Username" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterData.Email"></label>
+                <input asp-for="RegisterData.Email" class="form-control" />
+                <span asp-validation-for="RegisterData.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterData.Name">Nombre</label>
+                <input asp-for="RegisterData.Name" class="form-control" />
+                <span asp-validation-for="RegisterData.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterData.Surname">Apellido</label>
+                <input asp-for="RegisterData.Surname" class="form-control" />
+                <span asp-validation-for="RegisterData.Surname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterData.Password"></label>
+                <input asp-for="RegisterData.Password" class="form-control" />
+                <span asp-validation-for="RegisterData.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegisterData.ConfirmPassword"></label>
+                <input asp-for="RegisterData.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="RegisterData.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+
+        <div class="mt-3">
+            <p>
+                ¿Ya tienes una cuenta? <a asp-page="./Login">Inicia sesión aquí</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

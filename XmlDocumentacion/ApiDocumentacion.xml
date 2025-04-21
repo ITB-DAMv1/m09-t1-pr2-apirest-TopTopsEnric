@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiM09practica</name>
+    </assembly>
+    <members>
+        <member name="T:ApiM09practica.Contexts.dbContexts">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase encargada de crear el contexto para acceder a la base de datos.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Solo hay la creacion de contexto user y su relacion con la tabla games es todo lo que necesitamos para el funcionamiento.
+            </remarks>
+        </member>
+        <member name="T:ApiM09practica.Controllers.AuthController">
+             ‡‡<summary>_PLACEHOLDER‡‡
+             Clase encargada de crear los endpoints para la  autenticacion y registro de usuarios.
+             ‡‡</summary>_PLACEHOLDER‡‡
+             <remarks>
+             Estan incluidos los basicos de registrar tanto para user como admin y el login y la funcion de creacion de token.
+            Tambien se incluyo uno para ver si recibiamos el token bien porque en el desarrollo me daba problemas
+             </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.AuthController.Register(ApiM09practica.DTO.RegisterDTO)">
+             ‡‡<summary>_PLACEHOLDER‡‡
+             Funcion encargada de registrar un usuario. 
+             ‡‡</summary>_PLACEHOLDER‡‡
+             <remarks>
+              Recibe el modelo RegisterDTO y lo valida.
+            Crea el usuario y le asigna el rol de User.
+            Hashea la contraseña y el rol funciona ingresa en la base de datos, si falla elimina todo para evitar problemas.
+             </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.AuthController.RegisterAdmin(ApiM09practica.DTO.RegisterDTO)">
+             ‡‡<summary>_PLACEHOLDER‡‡
+             Funcion encargada de registrar un usuario_admin. 
+             ‡‡</summary>_PLACEHOLDER‡‡
+             <remarks>
+              Recibe el modelo RegisterDTO y lo valida.
+            Crea el usuario y le asigna el rol de admin.
+            Hashea la contraseña y el rol funciona ingresa en la base de datos, si falla elimina todo para evitar problemas.
+             </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.AuthController.Login(ApiM09practica.DTO.LoginDTO)">
+             ‡‡<summary>_PLACEHOLDER‡‡
+             Funcion encargada de realizar el Login. 
+             ‡‡</summary>_PLACEHOLDER‡‡
+             <remarks>
+             Recibe el modelo LoginDTO y mira que exista el usuario.
+            Si existe comprueba la contraseña.
+            luego seteamos los claims que son los datos que se guardan en el token.
+             Finalmente creamos el token y lo retornamos.
+             </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.AuthController.CreateToken(System.Security.Claims.Claim[])">
+             ‡‡<summary>_PLACEHOLDER‡‡
+             Funcion encargada de crear el Token. 
+             ‡‡</summary>_PLACEHOLDER‡‡
+             <remarks>
+             Recoje todas los datos que el token necesita y que queremos que tenga.
+            Genera la llave con el codigo de encriptacion que queremos y con la llave que queramos.
+            Creamos el token y lo metemos en un string y lo devolvemos.
+             </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.AuthController.DebugToken">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Funcion encargada de hacer pruebas si el token estaba funcionando. 
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Confirmaos que la autorizacion funciona y que extrae el token correctamente.
+            </remarks>
+        </member>
+        <member name="T:ApiM09practica.Controllers.GameController">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Controlador que maneja las operaciones relacionadas con los juegos.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:ApiM09practica.Controllers.GameController.GetAllGames">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Obtiene todos los juegos.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Consulta la base de datos para traer todos los juegos y los transforma en objetos que se pueden enviar al cliente.
+            </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.GameController.GetGame(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Obtiene un juego por su ID.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Busca el juego en la base de datos usando el ID.
+            Si no lo encuentra, devuelve un error.
+            Si lo encuentra, lo convierte al formato que se envía al cliente.
+            </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.GameController.PostGame(ApiM09practica.DTO.GameCreateDto)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Crea un nuevo juego (solo para administradores).
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Recibe los datos del juego, crea un nuevo registro con esos datos y el ID del usuario que lo crea.
+            Intenta guardar el juego en la base de datos y maneja posibles errores.
+            Devuelve el juego creado con su nuevo ID.
+            </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.GameController.DeleteGame(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Elimina un juego por su ID (solo para administradores).
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Busca el juego por ID y, si existe, lo elimina de la base de datos.
+            Maneja errores que puedan ocurrir al eliminar.
+            </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.GameController.PutGame(System.Int32,ApiM09practica.DTO.GameUpdateDto)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Actualiza un juego existente (solo para administradores).
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Busca el juego por ID y actualiza solo los campos que vienen con datos nuevos.
+            Guarda los cambios en la base de datos y maneja posibles errores de concurrencia.
+            </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.GameController.VoteGame(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Añade un voto a un juego (para administradores y usuarios).
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Busca el juego por ID, incrementa su contador de votos y guarda el cambio.
+            Maneja posibles errores al guardar.
+            </remarks>
+        </member>
+        <member name="M:ApiM09practica.Controllers.GameController.GameExists(System.Int32)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Verifica si un juego existe por su ID.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Consulta la base de datos para saber si hay un juego con ese ID.
+            </remarks>
+        </member>
+        <member name="T:ApiM09practica.DTO.GameCreateDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para crear un juego, que incluye el nombre, la descripción y la URL de la imagen de perfil.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.DTO.GameReadDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para leer los datos de un juego, que incluye el ID, nombre, descripción, URL de la imagen de perfil y la cantidad de votos.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.DTO.GameUpdateDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para actualizar un juego, con campos opcionales para nombre, descripción y URL de la imagen de perfil.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.DTO.GameVoteDto">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para votar un juego, que incluye el ID del juego (obligatorio).
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.DTO.LoginDTO">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para el login de usuario, que incluye el correo electrónico y la contraseña.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.DTO.RegisterDTO">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            DTO para el registro de usuarios, que incluye correo electrónico, contraseña, nombre, apellido y nombre de usuario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.Hubs.Chathub">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Hub de SignalR encargado de gestionar la comunicación en tiempo real del chat.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:ApiM09practica.Hubs.Chathub.EnviaMissatge(System.String)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Función que envía un mensaje recibido a todos los clientes conectados.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Obtiene el nombre del usuario que envía el mensaje o asigna "Anònim" si no está identificado.
+            Luego transmite el mensaje a todos los clientes suscritos al evento "RepMissatge".
+            </remarks>
+        </member>
+        <member name="T:ApiM09practica.Migrations.Inicial">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiM09practica.Migrations.Inicial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiM09practica.Migrations.Inicial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiM09practica.Migrations.Inicial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ApiM09practica.models.ApplicationUser">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase que extiende IdentityUser para representar un usuario de la aplicación, incluyendo nombre, apellido y una lista de videojuegos asociados.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.models.Games">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase que representa un juego, con propiedades para ID, nombre, descripción, imagen de perfil, votos y la relación con el usuario propietario.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="T:ApiM09practica.Tools.RoleTools">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase estática que contiene herramientas para la gestión de roles en la aplicación.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:ApiM09practica.Tools.RoleTools.CrearRolsInicials(System.IServiceProvider)">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Función que crea los roles iniciales ("Admin" y "User") si no existen en el sistema.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Utiliza el RoleManager para verificar la existencia de cada rol y los crea en caso de que no existan.
+            </remarks>
+        </member>
+        <member name="T:Program">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Clase principal que configura y arranca la aplicación web.
+            ‡‡</summary>_PLACEHOLDER‡‡
+        </member>
+        <member name="M:Program.Main(System.String[])">
+            ‡‡<summary>_PLACEHOLDER‡‡
+            Método principal asincrónico que configura los servicios, middleware y el pipeline de la aplicación.
+            ‡‡</summary>_PLACEHOLDER‡‡
+            <remarks>
+            Configura CORS para permitir solicitudes desde el cliente Razor.
+            Añade SignalR para comunicación en tiempo real.
+            Configura el DbContext con conexión a SQL Server.
+            Configura Identity con políticas de contraseña, bloqueo y login.
+            Configura la autenticación JWT con validaciones y eventos para manejo de tokens.
+            Añade autorización, controladores y opciones JSON para evitar ciclos de referencia.
+            Configura OpenAPI/Swagger con seguridad JWT.
+            Crea roles iniciales ("Admin" y "User") al iniciar la aplicación.
+            Configura middleware para HTTPS, autenticación, autorización, rutas, CORS, Swagger y SignalR.
+            Finalmente, ejecuta la aplicación.
+            </remarks>
+        </member>
+    </members>
+</doc>
